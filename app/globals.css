@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        /* Chethana palette — coloucode */
+        --background: 120 14% 5%;
+        --background-light: 188 14% 33%;
+        --foreground: 129 14% 90%;
+
+        --card: 120 14% 5%;
+        --card-foreground: 129 14% 90%;
+        --popover: 120 14% 5%;
+        --popover-foreground: 129 14% 90%;
+
+        --primary: 127 14% 75%;
+        --primary-foreground: 120 14% 5%;
+        --secondary: 188 14% 33%;
+        --secondary-foreground: 129 14% 90%;
+        --muted: 188 14% 20%;
+        --muted-foreground: 129 10% 65%;
+        --accent: 214 14% 52%;
+        --accent-foreground: 129 14% 90%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 129 14% 90%;
+        --border: 188 14% 25%;
+        --input: 188 14% 20%;
+        --ring: 127 14% 75%;
+    }
+}
+
+@layer base {
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    * {
+        @apply border-border;
+    }
+    @media (min-width: 768px) {
+        * {
+            cursor: none;
+        }
+    }
+    body {
+        @apply bg-background text-foreground font-space antialiased;
+    }
+}
+
+@layer components {
+    .markdown-text ul {
+        @apply pl-5 mt-2 list-disc;
+    }
+
+    .exp-bento-tile {
+        @apply relative overflow-hidden rounded-xl;
+    }
+
+    @keyframes exp-ticker {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    .animate-exp-ticker {
+        animation: exp-ticker linear infinite;
+    }
+}

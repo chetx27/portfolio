@@ -1,0 +1,11 @@
+Your selected colors:
+
+    Text: #e3eae4 - rgb(227, 234, 228) - hsl(129, 14%, 90%)
+    Background: #0c100c - rgb(12, 16, 12) - hsl(120, 14%, 5%)
+    Primary: #b5c7b7 - rgb(181, 199, 183) - hsl(127, 14%, 75%)
+    Secondary: #485d60 - rgb(72, 93, 96) - hsl(188, 14%, 33%)
+    Accent: #738296 - rgb(115, 130, 150) - hsl(214, 14%, 52%)
+
+Realtime Colors link for selected colors: https://www.realtimecolors.com/dashboard?colors=e3eae4-0c100c-b5c7b7-485d60-738296&fonts=Inter-Inter
+
+Thanks for using RealtimeColors.com!
