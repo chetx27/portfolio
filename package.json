@@ -10,37 +10,25 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",
-    "@react-three/drei": "^10.7.8",
-    "@react-three/fiber": "^9.7.0",
-    "@react-three/rapier": "^2.2.0",
     "animejs": "^4.5.0",
-    "canvas-confetti": "^1.9.4",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "gsap": "^3.12.5",
     "html-react-parser": "^5.2.3",
     "lenis": "^1.1.16",
     "lucide-react": "^0.460.0",
-    "meshline": "^3.3.1",
     "next": "15.2.8",
     "ogl": "^1.0.11",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-github-calendar": "^5.0.8",
     "tailwind-merge": "^2.5.4",
-    "tailwindcss-animate": "^1.0.7",
-    "three": "^0.185.1"
-  },
-  "overrides": {
-    "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@types/canvas-confetti": "^1.9.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@types/three": "^0.185.4",
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
     "postcss": "^8",

@@ -1,1 +1,0 @@
-self.__REACT_LOADABLE_MANIFEST='{"app/_components/GithubActivity.tsx -> react-github-calendar":{"id":1960,"files":["static/chunks/960.320f1dbd1ee02b91.js"]},"node_modules/react-activity-calendar/build/chunks/index-B3Gga1-_.js -> ./Tooltip-D5idU7TC.js":{"id":5673,"files":["static/chunks/c16f53c3.5082fb5249cd23a3.js","static/chunks/225.0d02a50adea54024.js"]}}';
