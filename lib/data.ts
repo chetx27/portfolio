@@ -10,12 +10,14 @@ export const GENERAL_INFO = {
   medium: 'https://medium.com/@chetx27',
 };
 
-/** Spotify — profile + playlist embed (user embed returns 404) */
+/** Spotify — profile link + public playlist embed (user pages can't embed) */
 export const SPOTIFY = {
+  handle: 'chetx27',
   profileUrl:
     'https://open.spotify.com/user/olwfu6bl1rglx7q45fjf1b643?si=a30d15303f474047',
+  // Chill Hits — public Spotify playlist (user/profile embeds 404)
   embedUrl:
-    'https://open.spotify.com/embed/playlist/37i9dQZF1DX4WYpdgoIcn0?utm_source=generator&theme=0',
+    'https://open.spotify.com/embed/playlist/37i9dQZF1DX4sWSpwq3LiO?utm_source=generator&theme=0',
 };
 
 export const SOCIAL_LINKS = [

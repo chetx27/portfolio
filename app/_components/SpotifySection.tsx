@@ -36,9 +36,7 @@ const SpotifySection = () => {
     return (
         <section className="py-12 md:py-16 w-full" id="music">
             <div className="container w-full" ref={ref}>
-                <div
-                    className="relative rounded-2xl overflow-hidden border border-white/10 min-h-[300px] md:min-h-[340px]"
-                >
+                <div className="relative rounded-2xl overflow-hidden border border-white/10 min-h-[300px] md:min-h-[340px]">
                     <MoltenMetal
                         color1="#485d60"
                         color2="#b5c7b7"
@@ -55,9 +53,8 @@ const SpotifySection = () => {
                     <div className="absolute inset-0 bg-background/10 pointer-events-none" />
 
                     <div className="relative z-[1] grid lg:grid-cols-12 gap-4 md:gap-5 p-4 md:p-6 min-h-[300px] md:min-h-[340px]">
-                        <div
-                            className="lg:col-span-5 flex flex-col justify-between rounded-xl border border-white/15 bg-white/[0.06] backdrop-blur-xl p-6 md:p-8 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)]"
-                        >
+                        {/* Left glass — copy + waveform + profile link */}
+                        <div className="lg:col-span-5 flex flex-col justify-between rounded-xl border border-white/15 bg-white/[0.06] backdrop-blur-xl p-6 md:p-8 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)]">
                             <div>
                                 <p className="text-[10px] uppercase tracking-[0.2em] text-primary/90 mb-3 font-medium">
                                     On Spotify
@@ -98,17 +95,31 @@ const SpotifySection = () => {
                             </a>
                         </div>
 
-                        <div
-                            className="lg:col-span-7 rounded-xl overflow-hidden border border-white/15 bg-white/[0.06] backdrop-blur-xl min-h-[280px] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)]"
-                        >
+                        {/* Right glass — working embed (no user-page 404) */}
+                        <div className="lg:col-span-7 flex flex-col rounded-xl overflow-hidden border border-white/15 bg-white/[0.06] backdrop-blur-xl shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)] min-h-[280px]">
+                            <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
+                                <div className="flex items-center gap-2">
+                                    <SpotifyIcon small />
+                                    <span className="text-xs uppercase tracking-[0.16em] text-muted-foreground">
+                                        Now playing
+                                    </span>
+                                </div>
+                                <a
+                                    href={SPOTIFY.profileUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-[11px] text-primary hover:underline"
+                                >
+                                    @{SPOTIFY.handle} →
+                                </a>
+                            </div>
+
                             <iframe
                                 src={SPOTIFY.embedUrl}
-                                width="100%"
-                                height="100%"
-                                className="min-h-[280px]"
+                                title="Spotify player"
+                                className="w-full flex-1 min-h-[232px] border-0 bg-transparent"
                                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                                 loading="lazy"
-                                title="Spotify playlist"
                             />
                         </div>
                     </div>
