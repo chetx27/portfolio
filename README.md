@@ -1,4 +1,4 @@
-]# Chethana G — Portfolio
+## Chethana G — Portfolio
 
 Full stack developer | UI/UX focused | Building things that solve real problems.
 
