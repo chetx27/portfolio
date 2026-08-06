@@ -1,32 +1,91 @@
-# React + TypeScript + Vite
+]# Chethana G — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Full stack developer | UI/UX focused | Building things that solve real problems.
 
-Currently, two official plugins are available:
+**Live:** [chethanaportfolio.vercel.app](https://chethanaportfolio.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Framework:** Next.js 15
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Database:** MongoDB / Firebase
+- **Deployment:** Vercel
 
-## Expanding the Oxlint configuration
+---
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## Setup
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+### Prerequisites
+- Node.js 18+
+- npm or yarn
+
+### Installation
+
+```bash
+git clone https://github.com/chetx27/portfolio.git
+cd portfolio
+npm install
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+### Environment Variables
+
+Create a `.env.local` file in the root:
+
+```env
+NEXT_PUBLIC_EMAIL=chethana.workspace@gmail.com
+```
+
+### Run Locally
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Build for Production
+
+```bash
+npm run build
+npm run start
+```
+
+---
+
+## Project Structure
+
+```
+/app          — Next.js app router
+/components   — React components
+/public       — Static assets (logos, images)
+/styles       — Global CSS
+```
+
+---
+
+## Features
+
+- Responsive design
+- Smooth animations
+- Project showcase
+- Experience timeline
+- Blog integration (Medium)
+- Spotify widget
+- GitHub activity feed
+
+---
+
+## Contact
+
+**Email:** chethana.workspace@gmail.com  
+**GitHub:** [@chetx27](https://github.com/chetx27)  
+**LinkedIn:** [@chetx27](https://linkedin.com/in/chetx27)
+
+---
+
+## License
+
+Open source — feel free to fork and use as inspiration.
