@@ -4,8 +4,6 @@ Full stack developer | UI/UX focused | Building things that solve real problems.
 
 **Live:** [chethanaportfolio.vercel.app](https://chethanaportfolio.vercel.app)
 
----
-
 ## Tech Stack
 
 - **Framework:** Next.js 15
@@ -13,8 +11,6 @@ Full stack developer | UI/UX focused | Building things that solve real problems.
 - **Styling:** Tailwind CSS
 - **Database:** MongoDB / Firebase
 - **Deployment:** Vercel
-
----
 
 ## Setup
 
@@ -53,7 +49,6 @@ npm run build
 npm run start
 ```
 
----
 
 ## Project Structure
 
@@ -63,8 +58,6 @@ npm run start
 /public       — Static assets (logos, images)
 /styles       — Global CSS
 ```
-
----
 
 ## Features
 
@@ -76,15 +69,11 @@ npm run start
 - Spotify widget
 - GitHub activity feed
 
----
-
 ## Contact
 
 **Email:** chethana.workspace@gmail.com  
 **GitHub:** [@chetx27](https://github.com/chetx27)  
 **LinkedIn:** [@chetx27](https://linkedin.com/in/chetx27)
-
----
 
 ## License
 
