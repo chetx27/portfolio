@@ -39,7 +39,10 @@ const Experiences = () => {
                         <ExperienceTile
                             key={item.company}
                             item={item}
-                            wide={index === MY_EXPERIENCE.length - 1}
+                            wide={
+                                MY_EXPERIENCE.length % 2 === 1 &&
+                                index === MY_EXPERIENCE.length - 1
+                            }
                         />
                     ))}
                 </div>

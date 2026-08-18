@@ -68,6 +68,21 @@ export const MY_EXPERIENCE: IExperience[] = [
     ],
   },
   {
+    company: 'Dora DAO',
+    logo: 'https://www.google.com/s2/favicons?domain=doradao.substack.com&sz=128',
+    employmentType: 'Fellowship',
+    location: 'Remote',
+    blockColor: '#b5c7b7',
+    blockTextColor: '#0c100c',
+    roles: [
+      {
+        title: 'Girls Who Yap Fellow 2026',
+        duration: 'Jul 2026 — Present · 1 mo',
+        skills: ['AI', 'Building in Public'],
+      },
+    ],
+  },
+  {
     company: 'TEDxCITBengaluru',
     logo: 'https://www.google.com/s2/favicons?domain=ted.com&sz=128',
     employmentType: 'Full-time',
@@ -190,16 +205,17 @@ export const PROJECTS: IProject[] = [
     sourceCode: 'https://github.com/chetx27/TrinetraAI',
   },
   {
-    title: 'isitjustmeh',
-    slug: 'isitjustmeh',
-    year: 2024,
-    description: 'Real time hyperlocal outage detection platform for India.',
+    title: 'canopy',
+    slug: 'canopy',
+    year: 2026,
+    description:
+      'AI for detecting tree loss, predicting climate risk, and optimizing city interventions.',
     role: '',
-    techStack: ['TypeScript', 'React', 'Firebase'],
+    techStack: ['Python', 'Geospatial AI', 'Remote Sensing'],
     thumbnail: thumb('property-pro.jpg'),
     longThumbnail: long('property-pro.jpg'),
     images: [],
-    sourceCode: 'https://github.com/chetx27/isitjustmeh',
+    sourceCode: 'https://github.com/chetx27/canopy',
   },
 ];
 
