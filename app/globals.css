@@ -83,6 +83,10 @@
             0 28px 56px rgba(0, 0, 0, 0.45);
     }
 
+    .contact-ticket-huge {
+        max-width: min(96vw, 960px);
+    }
+
     .contact-pass-ticket::before {
         content: '';
         position: absolute;

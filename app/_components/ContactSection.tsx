@@ -10,13 +10,13 @@ import { useRef, useState } from 'react';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-const TICKET_W = 780;
-const TICKET_H = 500;
-const PERF = 592 / TICKET_W;
+const TICKET_W = 960;
+const TICKET_H = 580;
+const PERF = 728 / TICKET_W;
 
 function ticketPath(w: number, h: number) {
-    const r = (22 / TICKET_W) * w;
-    const n = (18 / TICKET_W) * w;
+    const r = (26 / TICKET_W) * w;
+    const n = (20 / TICKET_W) * w;
     const p = PERF * w;
 
     return [
@@ -46,15 +46,14 @@ const ContactSection = () => {
 
     useGSAP(
         () => {
-            gsap.from('.contact-reveal', {
-                y: 40,
+            gsap.from('.contact-ticket-wrap', {
+                y: 48,
                 opacity: 0,
-                duration: 0.8,
+                duration: 0.9,
                 ease: 'power3.out',
-                stagger: 0.08,
                 scrollTrigger: {
                     trigger: sectionRef.current,
-                    start: 'top 85%',
+                    start: 'top 88%',
                 },
             });
         },
@@ -73,60 +72,45 @@ const ContactSection = () => {
             id="contact"
             className="border-t border-border/40 py-section"
         >
-            <div className="container">
-                <div className="contact-reveal mb-10 md:mb-12">
-                    <p className="mb-3 text-xs uppercase tracking-[0.35em] text-muted-foreground">
-                        Contact
-                    </p>
-                    <h2 className="font-anton text-[clamp(2.75rem,9vw,5.5rem)] leading-[0.92] text-primary lowercase">
-                        let&apos;s connect.
-                    </h2>
-                    <p className="mt-4 max-w-[42ch] text-muted-foreground">
-                        One pass — all the ways to reach me. Open a link or
-                        copy what you need.
-                    </p>
-                </div>
+            <div className="container flex justify-center px-4 sm:px-6">
+                <div
+                    className="contact-ticket-wrap contact-pass-ticket contact-ticket-huge relative w-full text-foreground"
+                    style={{ clipPath }}
+                >
+                    <div className="relative z-[1] flex min-h-[580px]">
+                        <div className="flex flex-1 flex-col px-8 py-10 sm:px-12 sm:py-12 md:px-14 md:py-14">
+                            <p className="text-[11px] uppercase tracking-[0.28em] text-muted-foreground">
+                                Portfolio · General admission
+                            </p>
 
-                <div className="contact-reveal flex justify-center">
-                    <div
-                        className="contact-pass-ticket relative w-full max-w-[780px]"
-                        style={{ clipPath }}
-                    >
-                        <div className="relative z-[1] flex min-h-[500px] text-foreground">
-                            <div className="flex flex-1 flex-col px-7 py-8 sm:px-10 sm:py-9">
-                                <p className="whitespace-pre-line text-[10px] uppercase leading-relaxed tracking-[0.22em] text-muted-foreground sm:text-[11px]">
-                                    {`Portfolio presents\nGeneral admission · Contact`}
-                                </p>
+                            <h2 className="mt-6 font-anton text-[clamp(3rem,10vw,5.5rem)] leading-[0.92] text-primary lowercase">
+                                connect with me.
+                            </h2>
 
-                                <h3 className="mt-5 font-anton text-[clamp(2.5rem,8vw,4.25rem)] leading-none tracking-tight text-primary">
-                                    CHETHANA G
-                                </h3>
+                            <ul className="mt-10 space-y-3.5 sm:mt-12 sm:space-y-4">
+                                {CONTACT_LINKS.map((link) => (
+                                    <ContactRow
+                                        key={link.id}
+                                        link={link}
+                                        copied={copiedId === link.id}
+                                        onCopy={handleCopy}
+                                    />
+                                ))}
+                            </ul>
 
-                                <ul className="mt-8 space-y-3 sm:mt-10">
-                                    {CONTACT_LINKS.map((link) => (
-                                        <ContactRow
-                                            key={link.id}
-                                            link={link}
-                                            copied={copiedId === link.id}
-                                            onCopy={handleCopy}
-                                        />
-                                    ))}
-                                </ul>
+                            <p className="mt-auto pt-10 text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+                                Chethana G · Bengaluru · 2026
+                            </p>
+                        </div>
 
-                                <p className="mt-auto pt-8 text-[10px] uppercase tracking-[0.18em] text-muted-foreground sm:text-[11px]">
-                                    Bengaluru · Open for collabs · 2026
-                                </p>
+                        <div className="relative w-[22%] min-w-[80px] shrink-0 border-l border-dashed border-primary/25 sm:min-w-[100px]">
+                            <div className="absolute inset-y-0 left-0 w-px bg-[repeating-linear-gradient(to_bottom,hsl(var(--primary)/0.45)_0_6px,transparent_6px_12px)]" />
+                            <div className="flex h-full items-center justify-center py-8 text-sm font-medium uppercase tracking-[0.14em] text-primary/80 [writing-mode:vertical-rl] sm:text-base">
+                                Admit one
                             </div>
-
-                            <div className="relative w-[24%] min-w-[72px] shrink-0 border-l border-dashed border-primary/25 sm:min-w-[88px]">
-                                <div className="absolute inset-y-0 left-0 w-px bg-[repeating-linear-gradient(to_bottom,hsl(var(--primary)/0.45)_0_6px,transparent_6px_12px)]" />
-                                <div className="flex h-full items-center justify-center py-6 text-[clamp(0.65rem,2.2vw,0.95rem)] font-medium uppercase tracking-[0.12em] text-primary/80 [writing-mode:vertical-rl]">
-                                    Admit one
-                                </div>
-                                <span className="pointer-events-none absolute bottom-8 left-1/2 -translate-x-1/2 text-[clamp(2.5rem,8vw,4.5rem)] font-bold tabular-nums tracking-[-0.04em] text-primary/25 [writing-mode:vertical-rl]">
-                                    2026
-                                </span>
-                            </div>
+                            <span className="pointer-events-none absolute bottom-10 left-1/2 -translate-x-1/2 text-[clamp(3rem,9vw,5rem)] font-bold tabular-nums tracking-[-0.04em] text-primary/25 [writing-mode:vertical-rl]">
+                                2026
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -147,19 +131,19 @@ function ContactRow({
     const canCopy = 'copyValue' in link && Boolean(link.copyValue);
 
     return (
-        <li className="grid grid-cols-[72px_1fr_auto] items-center gap-2 rounded-md border border-white/10 bg-background/30 px-3 py-2.5 backdrop-blur-sm sm:grid-cols-[88px_1fr_auto] sm:gap-3 sm:px-4">
-            <span className="text-[10px] font-medium uppercase tracking-[0.16em] text-muted-foreground sm:text-[11px]">
+        <li className="grid grid-cols-[80px_1fr_auto] items-center gap-3 rounded-lg border border-white/10 bg-background/35 px-4 py-3 backdrop-blur-sm sm:grid-cols-[96px_1fr_auto] sm:px-5 sm:py-3.5">
+            <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-primary/80">
                 {link.label}
             </span>
 
             <span
-                className="truncate text-sm font-medium text-foreground sm:text-[15px]"
+                className="truncate text-base font-medium text-foreground"
                 title={link.handle}
             >
                 {link.handle}
             </span>
 
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-2">
                 {canCopy && (
                     <button
                         type="button"
@@ -167,14 +151,14 @@ function ContactRow({
                             onCopy(link.id, link.copyValue as string)
                         }
                         className={cn(
-                            'inline-flex size-8 items-center justify-center rounded-full border transition',
+                            'inline-flex size-9 items-center justify-center rounded-full border transition',
                             copied
                                 ? 'border-primary bg-primary/15 text-primary'
                                 : 'border-white/15 bg-white/5 hover:border-primary/40',
                         )}
                         aria-label={`Copy ${link.label}`}
                     >
-                        {copied ? <Check size={14} /> : <Copy size={14} />}
+                        {copied ? <Check size={15} /> : <Copy size={15} />}
                     </button>
                 )}
                 <a
@@ -185,10 +169,10 @@ function ContactRow({
                             ? undefined
                             : 'noopener noreferrer'
                     }
-                    className="inline-flex size-8 items-center justify-center rounded-full border border-white/15 bg-white/5 transition hover:border-primary/40 hover:text-primary"
+                    className="inline-flex size-9 items-center justify-center rounded-full border border-white/15 bg-white/5 transition hover:border-primary/40 hover:text-primary"
                     aria-label={`Open ${link.label}`}
                 >
-                    <ArrowUpRight size={14} />
+                    <ArrowUpRight size={15} />
                 </a>
             </div>
         </li>
