@@ -103,34 +103,34 @@ function GlassProjectCard({ project, index, totalCards }: GlassProjectCardProps)
         >
             <div
                 ref={cardRef}
-                className="relative w-[min(96vw,1120px)]"
+                className="relative w-[min(98vw,1280px)]"
                 style={{
-                    top: `calc(-2vh + ${index * 16}px)`,
+                    top: `calc(-2vh + ${index * 18}px)`,
                     transformOrigin: 'top',
                 }}
             >
                 <div
-                    className="absolute -inset-1 rounded-[30px] opacity-80 blur-sm"
+                    className="absolute -inset-1.5 rounded-[32px] opacity-80 blur-sm"
                     style={{
                         background: `linear-gradient(135deg, ${theme.glow}, transparent 55%, ${theme.glow})`,
                     }}
                 />
 
-                <article className="glass-project-card relative overflow-hidden rounded-[28px] border border-white/10 bg-[#0c100c]">
-                    <div className="grid min-h-[520px] lg:min-h-[580px] lg:grid-cols-[1.15fr_0.85fr]">
-                        <div className="relative min-h-[280px] overflow-hidden border-b border-white/10 lg:min-h-full lg:border-b-0 lg:border-r lg:border-white/10">
+                <article className="glass-project-card relative overflow-hidden rounded-[30px] border border-white/10 bg-[#0c100c]">
+                    <div className="grid min-h-[560px] lg:min-h-[640px] lg:grid-cols-[1.15fr_0.85fr]">
+                        <div className="relative min-h-[300px] overflow-hidden border-b border-white/10 lg:min-h-full lg:border-b-0 lg:border-r lg:border-white/10">
                             <Image
                                 src={project.longThumbnail}
                                 alt={project.title}
                                 fill
                                 className="object-cover object-top"
-                                sizes="(max-width: 1024px) 96vw, 640px"
+                                sizes="(max-width: 1024px) 98vw, 720px"
                                 priority={index === 0}
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-[#0c100c]/90 via-[#0c100c]/15 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-[#0c100c]/10 lg:to-[#0c100c]/75" />
 
                             <span
-                                className="absolute left-6 top-6 rounded-full border px-3.5 py-1.5 text-xs font-medium uppercase tracking-[0.2em] backdrop-blur-md"
+                                className="absolute left-7 top-7 rounded-full border px-4 py-2 text-sm font-medium uppercase tracking-[0.2em] backdrop-blur-md"
                                 style={{
                                     borderColor: `${theme.text}33`,
                                     backgroundColor: `${theme.panel}cc`,
@@ -142,7 +142,7 @@ function GlassProjectCard({ project, index, totalCards }: GlassProjectCardProps)
                         </div>
 
                         <div
-                            className="relative flex flex-col justify-center gap-6 p-7 sm:p-9 lg:p-10"
+                            className="relative flex flex-col justify-center gap-7 p-8 sm:p-10 lg:p-12"
                             style={{
                                 backgroundColor: theme.panel,
                                 color: theme.text,
@@ -159,18 +159,18 @@ function GlassProjectCard({ project, index, totalCards }: GlassProjectCardProps)
 
                             <div className="relative">
                                 <p
-                                    className="text-[11px] font-medium uppercase tracking-[0.32em]"
+                                    className="text-xs font-medium uppercase tracking-[0.32em] sm:text-[13px]"
                                     style={{ color: theme.muted }}
                                 >
                                     {project.year} · Selected work
                                 </p>
-                                <h3 className="mt-3 font-anton text-[clamp(2.25rem,5.5vw,3.75rem)] leading-[0.95] lowercase">
+                                <h3 className="mt-3 font-anton text-[clamp(2.5rem,6vw,4.25rem)] leading-[0.95] lowercase">
                                     {project.title}
                                 </h3>
                             </div>
 
                             <p
-                                className="relative max-w-[40ch] text-[15px] leading-relaxed sm:text-base"
+                                className="relative max-w-[42ch] text-base leading-relaxed sm:text-[17px]"
                                 style={{ color: theme.muted }}
                             >
                                 {project.description}
@@ -180,7 +180,7 @@ function GlassProjectCard({ project, index, totalCards }: GlassProjectCardProps)
                                 {project.techStack.map((tech) => (
                                     <span
                                         key={tech}
-                                        className="rounded-full border px-3.5 py-1.5 text-xs font-medium"
+                                        className="rounded-full border px-4 py-2 text-sm font-medium"
                                         style={{
                                             borderColor: isLight
                                                 ? 'rgba(12,16,12,0.18)'
@@ -202,7 +202,7 @@ function GlassProjectCard({ project, index, totalCards }: GlassProjectCardProps)
                                         href={project.sourceCode}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-semibold uppercase tracking-wider transition hover:scale-[1.03]"
+                                        className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold uppercase tracking-wider transition hover:scale-[1.03]"
                                         style={{
                                             backgroundColor: isLight
                                                 ? '#0c100c'
@@ -221,7 +221,7 @@ function GlassProjectCard({ project, index, totalCards }: GlassProjectCardProps)
                                         href={project.liveUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-xs font-semibold uppercase tracking-wider transition hover:scale-[1.03]"
+                                        className="inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-semibold uppercase tracking-wider transition hover:scale-[1.03]"
                                         style={{
                                             borderColor: isLight
                                                 ? 'rgba(12,16,12,0.25)'
@@ -237,7 +237,7 @@ function GlassProjectCard({ project, index, totalCards }: GlassProjectCardProps)
                                         href={href}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-xs font-semibold uppercase tracking-wider transition hover:scale-[1.03]"
+                                        className="inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-semibold uppercase tracking-wider transition hover:scale-[1.03]"
                                         style={{
                                             borderColor: isLight
                                                 ? 'rgba(12,16,12,0.25)'
