@@ -24,7 +24,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: 'Chethana G — Full Stack Developer',
+  title: 'chethanaportfolio',
   description:
     'Full stack developer merging code and design. Builds beautiful, functional solutions that solve real problems.',
 };
