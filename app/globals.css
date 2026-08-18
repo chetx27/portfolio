@@ -91,6 +91,31 @@
         transform-style: preserve-3d;
     }
 
+    .contact-ticket-scale {
+        transform: scale(clamp(0.72, calc(0.55 + 12vw), 1));
+    }
+
+    @media (min-width: 768px) {
+        .contact-ticket-scale {
+            transform: scale(clamp(0.82, calc(0.62 + 8vw), 1));
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .contact-ticket-scale {
+            transform: scale(1);
+        }
+    }
+
+    .contact-ticket-link {
+        filter: drop-shadow(0 28px 48px rgba(0, 0, 0, 0.35));
+        transition: filter 0.35s ease;
+    }
+
+    .contact-ticket-link:hover {
+        filter: drop-shadow(0 36px 64px rgba(0, 0, 0, 0.45));
+    }
+
     @keyframes contact-float {
         0%,
         100% {
