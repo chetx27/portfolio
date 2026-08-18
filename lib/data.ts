@@ -8,7 +8,55 @@ export const GENERAL_INFO = {
   githubUser: 'chetx27',
   linkedin: 'https://www.linkedin.com/in/chetx27/',
   medium: 'https://medium.com/@chetx27',
+  discordHandle: 'chetx27',
+  discord: 'https://discord.com/users/chetx27',
 };
+
+export const CONTACT_LINKS = [
+  {
+    id: 'email',
+    label: 'Email',
+    handle: GENERAL_INFO.email,
+    hint: 'Best for projects & collabs',
+    href: `mailto:${GENERAL_INFO.email}?subject=${encodeURIComponent(GENERAL_INFO.emailSubject)}&body=${encodeURIComponent(GENERAL_INFO.emailBody)}`,
+    blockColor: '#e3eae4',
+    blockTextColor: '#0c100c',
+    glow: 'rgba(227, 234, 228, 0.35)',
+    copyValue: GENERAL_INFO.email,
+    wide: true,
+  },
+  {
+    id: 'linkedin',
+    label: 'LinkedIn',
+    handle: '/in/chetx27',
+    hint: 'Professional network',
+    href: GENERAL_INFO.linkedin,
+    blockColor: '#738296',
+    blockTextColor: '#e3eae4',
+    glow: 'rgba(115, 130, 150, 0.45)',
+  },
+  {
+    id: 'discord',
+    label: 'Discord',
+    handle: `@${GENERAL_INFO.discordHandle}`,
+    hint: 'Fastest way to yap',
+    href: GENERAL_INFO.discord,
+    blockColor: '#485d60',
+    blockTextColor: '#e3eae4',
+    glow: 'rgba(72, 93, 96, 0.5)',
+    copyValue: GENERAL_INFO.discordHandle,
+  },
+  {
+    id: 'medium',
+    label: 'Medium',
+    handle: '@chetx27',
+    hint: 'Essays & long reads',
+    href: GENERAL_INFO.medium,
+    blockColor: '#b5c7b7',
+    blockTextColor: '#0c100c',
+    glow: 'rgba(181, 199, 183, 0.4)',
+  },
+] as const;
 
 /** Spotify — profile link + public playlist embed (user pages can't embed) */
 export const SPOTIFY = {
@@ -23,6 +71,7 @@ export const SPOTIFY = {
 export const SOCIAL_LINKS = [
   { name: 'github', url: GENERAL_INFO.github },
   { name: 'linkedin', url: GENERAL_INFO.linkedin },
+  { name: 'discord', url: GENERAL_INFO.discord },
   { name: 'medium', url: GENERAL_INFO.medium },
   { name: 'spotify', url: SPOTIFY.profileUrl },
   { name: 'email', url: `mailto:${GENERAL_INFO.email}` },

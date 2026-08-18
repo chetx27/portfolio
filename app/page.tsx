@@ -3,6 +3,7 @@ import AboutMe from './_components/AboutMe';
 import Banner from './_components/Banner';
 import Blog from './_components/Blog';
 import Experiences from './_components/Experiences';
+import ContactSection from './_components/ContactSection';
 import GithubActivity from './_components/GithubActivity';
 import SpotifySection from './_components/SpotifySection';
 import ProjectList from './_components/ProjectList';
@@ -19,6 +20,7 @@ export default function Home() {
       <SpotifySection />
       <Blog />
       <GithubActivity />
+      <ContactSection />
     </div>
   );
 }
