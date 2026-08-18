@@ -20,22 +20,31 @@ const CustomCursor = () => {
             opacity: 0,
         });
 
+        const xTo = gsap.quickTo(cursor, 'x', {
+            duration: 0.04,
+            ease: 'power2.out',
+        });
+        const yTo = gsap.quickTo(cursor, 'y', {
+            duration: 0.04,
+            ease: 'power2.out',
+        });
+
         const handleMouseMove = contextSafe?.((e: MouseEvent) => {
+            xTo(e.clientX);
+            yTo(e.clientY);
             gsap.to(cursor, {
-                x: e.clientX,
-                y: e.clientY,
                 opacity: 1,
                 duration: 0.12,
-                ease: 'power3.out',
+                overwrite: 'auto',
             });
         }) as EventListener;
 
         const handleMouseLeave = contextSafe?.(() => {
-            gsap.to(cursor, { opacity: 0, duration: 0.2 });
+            gsap.to(cursor, { opacity: 0, duration: 0.15 });
         }) as EventListener;
 
         const handleMouseEnter = contextSafe?.(() => {
-            gsap.to(cursor, { opacity: 1, duration: 0.2 });
+            gsap.to(cursor, { opacity: 1, duration: 0.12 });
         }) as EventListener;
 
         window.addEventListener('mousemove', handleMouseMove);
