@@ -27,6 +27,10 @@ export const metadata: Metadata = {
   title: 'chethanaportfolio',
   description:
     'Full stack developer merging code and design. Builds beautiful, functional solutions that solve real problems.',
+  icons: {
+    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+    shortcut: ['/favicon.svg'],
+  },
 };
 
 export default function RootLayout({
