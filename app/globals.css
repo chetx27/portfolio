@@ -43,7 +43,7 @@
         }
     }
     body {
-        @apply bg-background text-foreground font-space antialiased;
+        @apply bg-background text-foreground font-space antialiased overflow-x-hidden;
     }
 }
 

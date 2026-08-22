@@ -15,10 +15,20 @@ export type Variant =
     | 'link'
     | 'no-color';
 
+export interface IProjectCaseStudy {
+    problem: string;
+    whyInteresting?: string;
+    built: string[];
+    technical: string[];
+    challenge?: string;
+    impact?: string;
+}
+
 export interface IProject {
     title: string;
     year: number;
     description: string;
+    highlight?: string;
     role: string;
     techStack: string[];
     thumbnail: string;
@@ -27,12 +37,14 @@ export interface IProject {
     slug: string;
     liveUrl?: string;
     sourceCode?: string;
+    caseStudy?: IProjectCaseStudy;
 }
 
 export interface IExperienceRole {
     title: string;
     duration: string;
     skills?: string[];
+    contribution?: string;
 }
 
 export interface IExperience {

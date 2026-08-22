@@ -40,18 +40,21 @@ const Banner = () => {
                 ref={containerRef}
             >
                 <div className="max-md:grow max-md:flex flex-col justify-center items-start max-w-[544px]">
-                    <h1 className="banner-title slide-up-and-fade leading-[.95] text-6xl sm:text-[80px] font-anton">
-                        <span className="text-primary">FULL STACK</span>
-                        <br /> <span className="ml-4">DEVELOPER</span>
+                    <h1 className="banner-title slide-up-and-fade leading-[.95] text-[clamp(2.75rem,12vw,80px)] font-anton">
+                        <span className="text-primary">BUILDER</span>
+                        <br />{' '}
+                        <span className="ml-2 sm:ml-4 text-[0.58em] sm:text-[0.68em] tracking-tight">
+                            AI · FULL STACK · WEB3
+                        </span>
                     </h1>
-                    <p className="banner-description slide-up-and-fade mt-6 text-lg text-muted-foreground">
+                    <p className="banner-description slide-up-and-fade mt-6 text-lg text-muted-foreground leading-relaxed">
                         Hi! I&apos;m{' '}
                         <span className="font-medium text-foreground">
                             Chethana G
                         </span>
-                        . Full stack developer merging code and design. I build
-                        beautiful, functional solutions that solve real
-                        problems.
+                        . I engineer intelligent systems — computer vision,
+                        signal pipelines, geospatial models — and ship them
+                        through interfaces that actually feel good to use.
                     </p>
                     <Button
                         as="link"

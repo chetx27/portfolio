@@ -86,14 +86,18 @@ const ExperienceTile = ({ item, wide }: Props) => {
 
             <div className="mt-8 pt-5 border-t border-current/15 space-y-3">
                 {item.roles.map((role) => (
-                    <div
-                        key={role.title}
-                        className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 text-sm"
-                    >
-                        <span className="font-medium">{role.title}</span>
-                        <span className="opacity-70 text-xs sm:text-sm">
-                            {role.duration}
-                        </span>
+                    <div key={role.title} className="space-y-1.5">
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 text-sm">
+                            <span className="font-medium">{role.title}</span>
+                            <span className="opacity-70 text-xs sm:text-sm">
+                                {role.duration}
+                            </span>
+                        </div>
+                        {role.contribution && (
+                            <p className="text-xs md:text-sm opacity-75 leading-relaxed max-w-prose">
+                                {role.contribution}
+                            </p>
+                        )}
                     </div>
                 ))}
                 {item.roles.some((r) => r.skills?.length) && (

@@ -1,5 +1,6 @@
 'use client';
 
+import TransitionLink from '@/components/TransitionLink';
 import { cn } from '@/lib/utils';
 import type { IProject } from '@/types';
 import gsap from 'gsap';
@@ -10,15 +11,6 @@ import { useEffect, useRef } from 'react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-/** Same bento palette as experience + blog sections */
-const SITE_BENTO = [
-    { panel: '#485d60', text: '#e3eae4', muted: 'rgba(227, 234, 228, 0.78)' },
-    { panel: '#738296', text: '#e3eae4', muted: 'rgba(227, 234, 228, 0.82)' },
-    { panel: '#485d60', text: '#e3eae4', muted: 'rgba(227, 234, 228, 0.78)' },
-    { panel: '#b5c7b7', text: '#0c100c', muted: 'rgba(12, 16, 12, 0.72)' },
-    { panel: '#e3eae4', text: '#0c100c', muted: 'rgba(12, 16, 12, 0.68)' },
-] as const;
-
 type GlassProjectCardProps = {
     project: IProject;
     index: number;
@@ -28,9 +20,7 @@ type GlassProjectCardProps = {
 function GlassProjectCard({ project, index, totalCards }: GlassProjectCardProps) {
     const cardRef = useRef<HTMLDivElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
-    const href = project.sourceCode ?? project.liveUrl ?? '#';
-    const theme = SITE_BENTO[index % SITE_BENTO.length];
-    const isLight = theme.text === '#0c100c';
+    const techSignal = project.techStack.join(' · ');
 
     useEffect(() => {
         const card = cardRef.current;
@@ -65,7 +55,7 @@ function GlassProjectCard({ project, index, totalCards }: GlassProjectCardProps)
     return (
         <div
             ref={containerRef}
-            className="flex h-[105vh] items-center justify-center sticky top-[6vh]"
+            className="flex h-[105vh] max-md:h-auto max-md:min-h-0 items-center justify-center sticky max-md:relative top-[6vh] max-md:top-0 max-md:mb-8"
             style={{ zIndex: index + 20 }}
         >
             <div
@@ -76,11 +66,11 @@ function GlassProjectCard({ project, index, totalCards }: GlassProjectCardProps)
                     transformOrigin: 'top',
                 }}
             >
-                <div className="absolute -inset-1.5 rounded-[32px] bg-primary/15 opacity-70 blur-md" />
+                <div className="absolute -inset-1.5 rounded-[32px] bg-primary/10 opacity-60 blur-md max-md:hidden" />
 
-                <article className="glass-project-card relative overflow-hidden rounded-[30px] border border-border/60 bg-background">
-                    <div className="grid min-h-[560px] lg:min-h-[640px] lg:grid-cols-[1.15fr_0.85fr]">
-                        <div className="relative min-h-[300px] overflow-hidden border-b border-border/40 lg:min-h-full lg:border-b-0 lg:border-r lg:border-border/40">
+                <article className="glass-project-card relative overflow-hidden rounded-[30px] max-md:rounded-2xl border border-border/60 bg-background">
+                    <div className="grid min-h-[560px] max-md:min-h-0 lg:min-h-[640px] lg:grid-cols-[1.15fr_0.85fr]">
+                        <div className="relative min-h-[240px] sm:min-h-[300px] overflow-hidden border-b border-border/40 lg:min-h-full lg:border-b-0 lg:border-r lg:border-border/40">
                             <Image
                                 src={project.longThumbnail}
                                 alt={project.title}
@@ -91,119 +81,65 @@ function GlassProjectCard({ project, index, totalCards }: GlassProjectCardProps)
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/20 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-background/15 lg:to-background/80" />
 
-                            <span
-                                className="absolute left-7 top-7 rounded-full border px-4 py-2 text-sm font-medium uppercase tracking-[0.2em] backdrop-blur-md"
-                                style={{
-                                    borderColor: `${theme.text}33`,
-                                    backgroundColor: `${theme.panel}dd`,
-                                    color: theme.text,
-                                }}
-                            >
+                            <span className="absolute left-5 top-5 sm:left-7 sm:top-7 rounded-full border border-primary/30 bg-background/80 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium uppercase tracking-[0.2em] text-primary backdrop-blur-md">
                                 _{(index + 1).toString().padStart(2, '0')}
                             </span>
                         </div>
 
-                        <div
-                            className="relative flex flex-col justify-center gap-7 p-8 sm:p-10 lg:p-12"
-                            style={{
-                                backgroundColor: theme.panel,
-                                color: theme.text,
-                            }}
-                        >
+                        <div className="relative flex flex-col justify-center gap-5 sm:gap-7 p-6 sm:p-10 lg:p-12 bg-background-light/15">
                             <div className="relative">
-                                <p
-                                    className="text-xs font-medium uppercase tracking-[0.32em] sm:text-[13px]"
-                                    style={{ color: theme.muted }}
-                                >
+                                <p className="text-xs font-medium uppercase tracking-[0.32em] text-muted-foreground sm:text-[13px]">
                                     {project.year} · Selected work
                                 </p>
-                                <h3
-                                    className={cn(
-                                        'mt-3 font-anton text-[clamp(2.5rem,6vw,4.25rem)] leading-[0.95] lowercase',
-                                        isLight ? 'text-[#0c100c]' : 'text-primary',
-                                    )}
-                                >
+                                <h3 className="mt-3 font-anton text-[clamp(2rem,6vw,4.25rem)] leading-[0.95] lowercase text-primary">
                                     {project.title}
                                 </h3>
                             </div>
 
-                            <p
-                                className="relative max-w-[42ch] text-base leading-relaxed sm:text-[17px]"
-                                style={{ color: theme.muted }}
-                            >
+                            <p className="relative max-w-[42ch] text-base leading-relaxed text-foreground sm:text-[17px]">
                                 {project.description}
                             </p>
 
-                            <div className="relative flex flex-wrap gap-2.5">
-                                {project.techStack.map((tech) => (
-                                    <span
-                                        key={tech}
-                                        className="rounded-full border px-4 py-2 text-sm font-medium"
-                                        style={{
-                                            borderColor: isLight
-                                                ? 'rgba(12,16,12,0.15)'
-                                                : 'rgba(227,234,228,0.2)',
-                                            backgroundColor: isLight
-                                                ? 'rgba(12,16,12,0.05)'
-                                                : 'rgba(0,0,0,0.1)',
-                                            color: theme.text,
-                                        }}
-                                    >
-                                        {tech}
-                                    </span>
-                                ))}
-                            </div>
+                            <p className="relative max-w-[44ch] text-sm leading-relaxed text-muted-foreground font-medium tracking-wide">
+                                {techSignal}
+                            </p>
 
-                            <div className="relative flex flex-wrap gap-3 pt-1">
+                            {project.highlight && (
+                                <p className="relative max-w-[44ch] text-sm leading-relaxed text-muted-foreground border-l-2 border-primary/40 pl-4">
+                                    {project.highlight}
+                                </p>
+                            )}
+
+                            <div className="relative flex flex-wrap gap-2.5 pt-1">
                                 {project.sourceCode && (
                                     <a
                                         href={project.sourceCode}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className={cn(
-                                            'inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold uppercase tracking-wider transition hover:scale-[1.03]',
-                                            isLight
-                                                ? 'bg-[#0c100c] text-[#e3eae4]'
-                                                : 'bg-primary text-primary-foreground',
-                                        )}
+                                        className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary-foreground transition duration-200 hover:scale-[1.02] hover:brightness-105"
                                     >
                                         <Github size={15} />
                                         GitHub
                                     </a>
                                 )}
-                                {project.liveUrl ? (
+                                {project.liveUrl && (
                                     <a
                                         href={project.liveUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-semibold uppercase tracking-wider transition hover:scale-[1.03] hover:border-primary/50 hover:text-primary"
-                                        style={{
-                                            borderColor: isLight
-                                                ? 'rgba(12,16,12,0.22)'
-                                                : 'rgba(227,234,228,0.3)',
-                                            color: theme.text,
-                                        }}
+                                        className="inline-flex items-center gap-2 rounded-full border border-border/60 px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold uppercase tracking-wider text-foreground transition duration-200 hover:scale-[1.02] hover:border-primary/50 hover:text-primary"
                                     >
                                         Live demo
                                         <ArrowUpRight size={15} />
                                     </a>
-                                ) : (
-                                    <a
-                                        href={href}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-semibold uppercase tracking-wider transition hover:scale-[1.03] hover:border-primary/50 hover:text-primary"
-                                        style={{
-                                            borderColor: isLight
-                                                ? 'rgba(12,16,12,0.22)'
-                                                : 'rgba(227,234,228,0.3)',
-                                            color: theme.text,
-                                        }}
-                                    >
-                                        View repo
-                                        <ArrowUpRight size={15} />
-                                    </a>
                                 )}
+                                <TransitionLink
+                                    href={`/projects/${project.slug}`}
+                                    className="inline-flex items-center gap-2 rounded-full border border-border/60 px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold uppercase tracking-wider text-foreground transition duration-200 hover:scale-[1.02] hover:border-primary/50 hover:text-primary"
+                                >
+                                    Case study
+                                    <ArrowUpRight size={15} />
+                                </TransitionLink>
                             </div>
                         </div>
                     </div>

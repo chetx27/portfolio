@@ -34,9 +34,9 @@ const SpotifySection = () => {
     );
 
     return (
-        <section className="py-12 md:py-16 w-full" id="music">
+        <section className="py-10 md:py-14 w-full" id="music">
             <div className="container w-full" ref={ref}>
-                <div className="relative rounded-2xl overflow-hidden border border-white/10 min-h-[300px] md:min-h-[340px]">
+                <div className="relative rounded-2xl overflow-hidden border border-white/10 min-h-[280px] md:min-h-[320px]">
                     <MoltenMetal
                         color1="#485d60"
                         color2="#b5c7b7"
@@ -66,9 +66,10 @@ const SpotifySection = () => {
                                         soundtrack
                                     </span>
                                 </h2>
-                                <p className="mt-4 text-sm text-muted-foreground max-w-sm leading-relaxed">
-                                    What I listen to while designing, debugging,
-                                    and shipping. Follow along on Spotify.
+                                <p className="mt-3 text-sm text-muted-foreground max-w-sm leading-relaxed">
+                                    What I listen to while building, debugging,
+                                    and shipping. A small window into the person
+                                    behind the code.
                                 </p>
                             </div>
 

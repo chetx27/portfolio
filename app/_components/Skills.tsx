@@ -1,13 +1,20 @@
 'use client';
 import SectionTitle from '@/components/SectionTitle';
 import { MY_STACK } from '@/lib/data';
+import { cn } from '@/lib/utils';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
-import Image from 'next/image';
 import React, { useRef } from 'react';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
+
+const CATEGORY_LABELS: Record<string, string> = {
+    'AI / ML': 'AI / ML',
+    'Systems / Backend': 'Systems / Backend',
+    Frontend: 'Frontend',
+    'Tools / Infrastructure': 'Tools / Infrastructure',
+};
 
 const Skills = () => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -62,34 +69,33 @@ const Skills = () => {
             <div className="container">
                 <SectionTitle title="My Stack" />
 
-                <div className="space-y-12 md:space-y-16">
-                    {Object.entries(MY_STACK).map(([key, value]) => (
-                        <div className="grid sm:grid-cols-12" key={key}>
-                            <div className="sm:col-span-5">
-                                <p className="slide-up text-5xl font-anton leading-none text-muted-foreground uppercase">
-                                    {key}
+                <p className="mb-12 max-w-[48ch] text-muted-foreground -mt-4">
+                    Engineering areas I work in — not a resume dump, just where
+                    most of my time goes.
+                </p>
+
+                <div className="space-y-10 md:space-y-12">
+                    {Object.entries(MY_STACK).map(([key, skills]) => (
+                        <div className="grid sm:grid-cols-12 gap-4" key={key}>
+                            <div className="sm:col-span-4 md:col-span-3">
+                                <p className="slide-up text-2xl md:text-3xl font-anton leading-none text-muted-foreground">
+                                    {CATEGORY_LABELS[key] ?? key}
                                 </p>
                             </div>
 
-                            <div className="sm:col-span-7 flex gap-x-11 gap-y-9 flex-wrap">
-                                {value.map((item) => (
-                                    <div
-                                        className="slide-up flex gap-3.5 items-center leading-none"
-                                        key={item.name}
+                            <div className="sm:col-span-8 md:col-span-9 flex flex-wrap gap-2.5">
+                                {skills.map((skill) => (
+                                    <span
+                                        key={skill}
+                                        className={cn(
+                                            'slide-up inline-flex items-center rounded-full border border-border/60',
+                                            'bg-background-light/20 px-4 py-2 text-sm md:text-base',
+                                            'text-foreground transition-colors duration-200',
+                                            'hover:border-primary/40 hover:bg-primary/5',
+                                        )}
                                     >
-                                        <div>
-                                            <Image
-                                                src={item.icon}
-                                                alt={item.name}
-                                                width="40"
-                                                height="40"
-                                                className="max-h-10"
-                                            />
-                                        </div>
-                                        <span className="text-2xl capitalize">
-                                            {item.name}
-                                        </span>
-                                    </div>
+                                        {skill}
+                                    </span>
                                 ))}
                             </div>
                         </div>

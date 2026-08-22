@@ -21,11 +21,11 @@ const CustomCursor = () => {
         });
 
         const xTo = gsap.quickTo(cursor, 'x', {
-            duration: 0.04,
-            ease: 'power2.out',
+            duration: 0.015,
+            ease: 'power3.out',
         });
         const yTo = gsap.quickTo(cursor, 'y', {
-            duration: 0.04,
+            duration: 0.055,
             ease: 'power2.out',
         });
 
